@@ -1,0 +1,397 @@
+:root
+{
+    --main-theme: #fcc10f;
+    --main-theme-dark: #e2ad0f;
+    --select-clr: #D5DFEC;
+}
+::selection
+{
+    background-color: var(--main-theme);
+    color: white;
+}
+::-webkit-scrollbar
+{
+    width: 0;
+}
+body::-webkit-scrollbar
+{
+    width: 0.4rem;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 0 transparent;
+}
+body
+{
+    min-height: 100svh;
+}
+.navbar
+{
+    background-color: rgba(240, 248, 255, 0.6) !important;
+    backdrop-filter: blur(15px);
+    z-index: 99999999999999;
+    transform: translateY(-100px);
+    animation: navAnimY 0.8s ease-in-out forwards;
+    transition: 0.2s box-shadow;
+}
+.navbar.active
+{
+    box-shadow: 0 0 20px rgb(0,0,0,0.6);
+}
+.navbar ~ .container
+{
+    min-height: 100svh;
+    padding-bottom: 30px;
+}
+.navbarAnimX
+{
+    transform: translateX(-100px);
+    animation: navAnimX 1s ease-in-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+.navbarAnimX-reverse
+{
+    transform: translateX(100px);
+    animation: navAnimX-reverse 1s ease-in-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+    border: 0 !important;
+}
+@keyframes navAnimY {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes navAnimX {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes navAnimX-reverse {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.navbar-nav
+{
+    width: 100%;
+    gap: 25px;
+}
+.navbar ~ .container
+{
+    padding-top: 70px;
+}
+.navbar .nav-link
+{
+    transition: 0.3s scale, 0.3s color, 0.3s text-shadow;
+    z-index: 2;
+}
+.navbar .nav-link:not(.nav-link.login):hover
+{
+    scale: 1.08;
+}
+.navbar .nav-link.hover:not(.nav-link.login)
+{
+    transition-delay: 0.3s;
+    scale: 1.08;
+    color: white;
+}
+.navbar .nav-link.hover:not(.nav-link.login):active
+{
+    scale: 0.93;
+}
+.navbar .nav-link.hover:not(.nav-link.login):after
+{
+    transition: 0.35s;
+}
+.navbar .nav-link.hover:not(.nav-link.login):active:after
+{
+    background-color: var(--main-theme-dark);
+    box-shadow: 0 0 10px var(--main-theme-dark) !important;
+}
+.navbar .nav-link:not(.nav-link.login)::after
+{
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    border-radius: 10px;
+    background-color: black;
+    transition: 0.35s width, 0.35s opacity, 0.35s height, 0.35s background-color, 0.35s bottom;
+    opacity: 0;
+    z-index: -1;
+}
+.navbar .nav-link.active:not(.nav-link.login)::after
+{
+    background-color: rgba(0,0,0,0.8);
+}
+.navbar .nav-link:not(.nav-link.login):hover:after
+{
+    width: 65%;
+    opacity: 1;
+}
+.navbar .nav-link.hover:not(.nav-link.login)::after
+{
+    transition-delay: 0.3s;
+    width: 105%;
+    height: 33px;
+    bottom: 3px;
+    background-color: var(--main-theme);
+    opacity: 1;
+}
+.navbar .nav-link.login
+{
+    background-color: var(--main-theme);
+    color: white;
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.35s background, 0.35s box-shadow, 0.35s scale;
+    scale: 1.1;
+}
+.navbar .nav-link.login:hover
+{
+    background-color: var(--main-theme-dark);
+    box-shadow: 0 0 10px var(--main-theme-dark) !important;
+}
+.navbar .nav-link.login:active
+{
+    background-color: var(--main-theme-dark);
+    box-shadow: 0 0 10px var(--main-theme-dark) !important;
+    scale: 0.93;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
+{
+    margin-bottom: 0;
+}
+.form-select,
+.form-control
+{
+    border: 1px solid rgb(170,170,170);
+    outline: 0;
+    box-shadow: 0 0 0 0 transparent !important;
+}
+hr, p
+{
+    margin: 0;
+}
+.inputBox
+{
+    user-select: none;
+    position: relative;
+}
+.inputBox input,
+.inputBox textarea,
+.inputBox select
+{
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid rgb(170,170,170);
+    width: 100%;
+    height: 40px;
+    outline: 0;
+    box-shadow: 0 0 0 0 transparent !important;
+}
+.inputBox input:focus,
+.inputBox textarea:focus,
+.inputBox select:focus
+{
+    border: 1px solid rgb(100,100,100);
+}
+.inputLeft-container .inputBox input
+{
+    border-radius: 10px 0 0 10px;
+}
+.inputLeft-container .inputBox p
+{
+    font-size: 20px;
+    background: white;
+    border: 1px solid rgb(170,170,170);
+    border-left: 0;
+    height: 40px;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inputLeft-container.price .inputBox p
+{
+    width: 40px;
+}
+.inputRight-container .inputBox input
+{
+    border-radius: 0 10px 10px 0;
+}
+.inputRight-container .inputBox p
+{
+    font-size: 20px;
+    background: white;
+    border: 1px solid rgb(170,170,170);
+    border-right: 0;
+    height: 40px;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inputRight-container.price .inputBox p
+{
+    width: 40px;
+}
+.inputCenter-container .inputBox input
+{
+    border-radius: 0;
+}
+.inputCenter-container .inputBox p
+{
+    font-size: 20px;
+    background: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inputCenter-container .inputBox p
+{
+    border: 1px solid rgb(170,170,170);
+    border-right: 0;
+    border-radius: 10px 0 0 10px;
+}
+.inputCenter-container .inputBox p ~ input ~ p
+{
+    border: 1px solid rgb(170,170,170);
+    border-left: 0;
+    border-radius: 0 10px 10px 0;
+}
+.inputCenter-container.price .inputBox p
+{
+    width: 40px;
+}
+
+.inputFrontName-container .inputBox label
+{
+    padding: 0 15px;
+    border-radius: 10px 0 0 10px;
+    height: 100%;
+    border: 1px solid rgb(170,170,170);
+    border-right: 0;
+    height: 40px;
+}
+.inputFrontName-container .inputBox label ~ select,
+.inputFrontName-container .inputBox label ~ input
+{
+    border-radius: 0 10px 10px 0;
+}
+.alert
+{
+    user-select: none;
+    display: flex;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.alert i
+{
+    padding-top: 5px;
+    padding-right: 10px;
+}
+.container
+{
+    transition: 0.25s ease-in-out !important;
+    position: relative;
+}
+#password_check
+{
+    display: none;
+}
+#password_check .alert
+{
+    width: 100%;
+}
+#password_check.active
+{
+    display: block;
+}
+.title-container
+{
+    position: relative;
+    height: 350px;
+    transition: 0.75s;
+}
+.title-container.scrolled
+{
+    height: 200px;
+}
+.title-container.scrolled .mini-products-container
+{
+    scale: 1.1;
+    transform: translateY(-30px);
+}
+.title-container.scrolled .title-box h1,
+.title-container.scrolled .title-box p
+{
+    opacity: 0;
+    scale: 0.7;
+}
+.title-box
+{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    text-align: center;
+    opacity: 0;
+    animation: titleAnim 1.2s ease-in-out forwards;
+    width: 100%;
+    user-select: none;
+}
+@keyframes titleAnim {
+    0%
+    {
+        top: 100%;
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(0);
+    }
+    100%
+    {
+        top: 50%;
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1);
+    }
+}
+.title-box h1
+{
+    transition: 0.35s;
+}
+.title-box p
+{
+    font-size: 15.1px;
+    transition: 0.35s;
+}
+@media (max-width: 767px)
+{
+    .alert
+    {
+        font-size: 0.8rem;
+    }
+}

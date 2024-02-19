@@ -1,0 +1,158 @@
+.navbar ~ .container
+{
+    display: flex;
+    align-items: center;
+}
+.sign-container
+{
+    width: 100%;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0;
+    display: flex;
+    overflow: hidden;
+    padding: 20px;
+    scale: 0;
+    opacity: 0;
+    transform: translateY(-300px);
+    animation: signContainerAnim 1.2s ease-in-out forwards;
+    animation-delay: 0.25s;
+}
+@keyframes signContainerAnim {
+    0% {
+        scale: 0;
+        opacity: 0;
+        transform: translateY(-300px);
+        box-shadow: 0;
+    }
+    100% {
+        scale: 1;
+        opacity: 1;
+        transform: translateY(0);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    }
+}
+.sign-container .sign-left
+{
+    width: 55%;
+}
+.sign-container .sign-right
+{
+    width: 45%;
+}
+.sign-container .sign-left .sign-img img
+{
+    padding: 10px;
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+    pointer-events: none;
+}
+.sign-box
+{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.sign-box header
+{
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    user-select: none;
+}
+.sign-box header a
+{
+    height: 100%;
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: var(--main-theme);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.25s background-color;
+}
+.sign-box header a:hover,
+.sign-box header a:active
+{
+    background-color: var(--main-theme-dark);
+}
+.sign-box header a.active
+{
+    background-color: var(--main-theme-dark);
+}
+.sign-box .sign-detail
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.sign-box .sign-detail h1
+{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 15px;
+    user-select: none;
+}
+.sign-box .sign-detail .inputBox:not(.submitBox)
+{
+    margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+    .sign-box header
+    {
+        height: 35px;
+    }
+    .sign-box header a
+    {
+        font-size: 1.1rem;
+    }
+    .sign-container
+    {
+        flex-direction: column;
+    }
+    .sign-container .sign-left .sign-img img
+    {
+        width: 100%;
+        height: 200px;
+        padding: 0;
+        padding-bottom: 20px;
+    }
+    .sign-box .sign-detail h1
+    {
+        display: none;
+    }
+    .sign-container .sign-left,
+    .sign-container .sign-right
+    {
+        width: 100%;
+    }
+    .sign-box
+    {
+        padding: 0;
+    }
+    .sign-box .sign-detail
+    {
+        margin-top: 20px;
+    }
+}
+@media (min-width: 2000px) {
+    .container
+    {
+        scale: 1.3;
+        transition: 0.25s ease-in-out !important;
+    }   
+}
